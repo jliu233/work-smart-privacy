@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support | Work Smart</title>
+  <meta name="description" content="Support page for Work Smart" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #11172a;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #e8ecf8;
+      --muted: #b5bfd6;
+      --accent: #7c9cff;
+      --accent-2: #8ef0d2;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --max-width: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 156, 255, 0.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(142, 240, 210, 0.18), transparent 24%),
+        linear-gradient(180deg, #0a0f1d 0%, #0f1628 45%, #0a0f1d 100%);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 48px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(124, 156, 255, 0.18), rgba(255, 255, 255, 0.06));
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -90px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(142, 240, 210, 0.22), transparent 65%);
+      pointer-events: none;
+    }
+
+    .top-nav {
+      display: inline-flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .nav-link.active {
+      background: rgba(124, 156, 255, 0.18);
+      border-color: rgba(124, 156, 255, 0.28);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .content,
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .content {
+      padding: 34px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 24px;
+      padding: 22px 20px;
+    }
+
+    .toc h2 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .toc ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .toc li + li {
+      margin-top: 10px;
+    }
+
+    section + section {
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h2.section-title {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .highlight {
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(124, 156, 255, 0.1);
+      border: 1px solid rgba(124, 156, 255, 0.2);
+      color: var(--text);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .info-card,
+    .contact-card {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .info-card h3,
+    .contact-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .info-card p,
+    .contact-card p {
+      margin: 0;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 28px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 920px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, var(--max-width));
+        padding: 20px 0 40px;
+      }
+
+      .hero,
+      .content,
+      .toc {
+        border-radius: 22px;
+      }
+
+      .hero {
+        padding: 28px 22px;
+      }
+
+      .content {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <nav class="top-nav" aria-label="Page navigation">
+        <a class="nav-link" href="privacy.html">Privacy Policy</a>
+        <a class="nav-link active" href="support.html">Support</a>
+      </nav>
+
+      <span class="badge">Work Smart · Support</span>
+      <h1>Support for Work Smart</h1>
+      <p>
+        Need help with Work Smart? We’re here to support you. If you have questions about syncing your Apple Calendar or Google Calendar, app functionality, or account access, please reach out using the contact information below.
+      </p>
+    </header>
+
+    <div class="grid">
+      <article class="content">
+        <section id="contact-support">
+          <h2 class="section-title">Contact Support</h2>
+          <p>
+            For support requests, bug reports, feature suggestions, or general questions about Work Smart, contact us at:
+          </p>
+          <div class="contact-card">
+            <h3>Email Support</h3>
+            <p><a href="mailto:jqliu221@gmail.com">jqliu221@gmail.com</a></p>
+          </div>
+        </section>
+
+        <section id="help-topics">
+          <h2 class="section-title">Common Help Topics</h2>
+          <div class="card-grid">
+            <div class="info-card">
+              <h3>Calendar Sync</h3>
+              <p>Help with connecting Apple Calendar or Google Calendar and allowing the permissions required for task generation.</p>
+            </div>
+            <div class="info-card">
+              <h3>Permissions</h3>
+              <p>Questions about why calendar access is needed and how Work Smart uses your data to create tasks automatically.</p>
+            </div>
+            <div class="info-card">
+              <h3>App Issues</h3>
+              <p>Report bugs, syncing issues, crashes, or anything not working as expected so we can improve the experience.</p>
+            </div>
+            <div class="info-card">
+              <h3>Feature Requests</h3>
+              <p>Share ideas for improvements, new workflows, or productivity features you’d love to see in Work Smart.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="response-time">
+          <h2 class="section-title">Response Time</h2>
+          <p>
+            We aim to respond to support inquiries as quickly as possible. Please include details about your issue, your device, and the version of the app you are using so we can help more efficiently.
+          </p>
+          <div class="highlight">
+            Helpful details include: your iPhone model, iOS version, whether you connected Apple Calendar or Google Calendar, and a short description of what happened.
+          </div>
+        </section>
+
+        <section id="privacy-link">
+          <h2 class="section-title">Privacy</h2>
+          <p>
+            To learn more about how Work Smart handles calendar permissions and privacy, please review our <a href="privacy.html">Privacy Policy</a>.
+          </p>
+        </section>
+      </article>
+
+      <aside class="toc" aria-label="Support quick link">
+        <h2>Quick Link</h2>
+        <ul>
+          <li><a href="privacy.html">Open Privacy Policy</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <p class="footer">© 2026 Work Smart. All rights reserved.</p>
+  </main>
+</body>
+</html>

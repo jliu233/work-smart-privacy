@@ -78,6 +78,39 @@
       pointer-events: none;
     }
 
+    .top-nav {
+      display: inline-flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .nav-link.active {
+      background: rgba(124, 156, 255, 0.18);
+      border-color: rgba(124, 156, 255, 0.28);
+    }
+
     .badge {
       display: inline-flex;
       align-items: center;
@@ -234,6 +267,11 @@
 <body>
   <main class="page">
     <header class="hero">
+      <nav class="top-nav" aria-label="Page navigation">
+        <a class="nav-link active" href="privacy.html">Privacy Policy</a>
+        <a class="nav-link" href="support.html">Support</a>
+      </nav>
+
       <span class="badge">Work Smart · Privacy Policy</span>
       <h1>Privacy Policy for Work Smart</h1>
       <p>
@@ -306,7 +344,7 @@
           </p>
           <p>You can revoke access at any time through:</p>
           <ul>
-            <li>iOS Settings → Privacy → Calendars</li>
+            <li>iOS Settings → Privacy & Security → Calendars</li>
             <li>Your Google account permissions</li>
           </ul>
         </section>
